@@ -45,7 +45,7 @@ export default function LeaseAddOns() {
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Card
             title="Pets"
-            icon={<FaDog className="text-green-600" />}
+            icon={<FaDog className="text-gray-600" />}
             description="$35 / mo / pet"
             additionalInfo="$300 deposit increase"
             pendingText="1 pending"
