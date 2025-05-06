@@ -3,13 +3,18 @@ import { FaDog, FaCar, FaBox, FaBicycle } from "react-icons/fa";
 export default function LeaseAddOns() {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      <header className="border-b border-gray-300 pb-4 mb-6">
-        <h1 className="text-3xl font-bold text-red-600">Lease Add-Ons</h1>
-        <p className="text-gray-700">Welcome, Daisy!</p>
-        <p className="text-sm text-gray-500 mt-1">
-          Avalon at Hackensack at Riverside • Apartment 201-343 • 2 bedrooms • 2
-          baths • 919 Sq.ft
-        </p>
+      <header className="grid grid-cols-2 gap-4 border-b border-gray-300 pb-4 mb-6">
+        <div>
+          <h1 className="text-3xl font-bold text-red-600">Lease Add-Ons</h1>
+          <p className="text-gray-700">Welcome, Daisy!</p>
+        </div>
+        <div className="text-right">
+          <p className="text-sm text-gray-500">
+            Avalon at Hackensack at Riverside<br />
+            Apartment 201-343<br />
+            2 bedrooms • 2 baths • 919 Sq.ft
+          </p>
+        </div>
       </header>
 
       <main className="max-w-4xl mx-auto">
