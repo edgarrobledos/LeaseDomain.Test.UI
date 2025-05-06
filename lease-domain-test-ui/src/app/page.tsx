@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
 import { FaDog, FaCar, FaBox, FaBicycle } from "react-icons/fa";
+import { LeaseSummary } from "@/types/leaseSummary";
 
 export default function LeaseAddOns() {
-  const [selectedCard, setSelectedCard] = useState<string | null>(null);
-  const [leaseSummary, setLeaseSummary] = useState<unknown>(null);
+  const [selectedCard, setSelectedCard] = useState<string | null>();
+  const [leaseSummary, setLeaseSummary] = useState<LeaseSummary>();
 
   useEffect(() => {
     const fetchLeaseSummary = async () => {
@@ -31,8 +32,6 @@ export default function LeaseAddOns() {
     fetchLeaseSummary();
   }, []);
 
-  console.log("Lease Summary:", leaseSummary);
-
   const handleCardSelect = (cardTitle: string) => {
     setSelectedCard(selectedCard === cardTitle ? null : cardTitle);
   };
@@ -42,7 +41,9 @@ export default function LeaseAddOns() {
       <header className="grid grid-cols-2 gap-4 border-b border-gray-300 pb-4 mb-6">
         <div>
           <h1 className="text-3xl font-bold text-red-600">Lease Add-Ons</h1>
-          <p className="text-gray-700">Welcome, Daisy!</p>
+          <p className="text-gray-700">
+            Welcome, {leaseSummary?.resident.first_name}!
+          </p>
         </div>
         <div className="text-right">
           <p className="text-sm text-gray-500">
