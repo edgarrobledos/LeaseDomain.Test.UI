@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { FaDog, FaCar, FaBox, FaBicycle } from "react-icons/fa";
 
 export default function LeaseAddOns() {
