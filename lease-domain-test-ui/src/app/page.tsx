@@ -1,3 +1,4 @@
+import Card from "./components/Card";
 import { FaDog, FaCar, FaBox, FaBicycle } from "react-icons/fa";
 
 export default function LeaseAddOns() {
@@ -10,9 +11,10 @@ export default function LeaseAddOns() {
         </div>
         <div className="text-right">
           <p className="text-sm text-gray-500">
-            Avalon at Hackensack at Riverside<br />
-            Apartment 201-343<br />
-            2 bedrooms • 2 baths • 919 Sq.ft
+            Avalon at Hackensack at Riverside
+            <br />
+            Apartment 201-343
+            <br />2 bedrooms • 2 baths • 919 Sq.ft
           </p>
         </div>
       </header>
@@ -41,41 +43,32 @@ export default function LeaseAddOns() {
         </section>
 
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="border border-green-500 rounded-lg p-4 bg-white shadow">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-                <FaDog className="text-green-600" /> Pets
-              </h3>
-              <span className="text-green-600 text-2xl">✔</span>
-            </div>
-            <p className="text-sm text-gray-600 mt-2">$35 / mo / pet</p>
-            <p className="text-sm text-gray-600">$300 deposit increase</p>
-            <p className="text-sm text-red-600 mt-2">1 pending</p>
-          </div>
-
-          <div className="border rounded-lg p-4 bg-white shadow">
-            <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-              <FaCar className="text-gray-600" /> Parking
-            </h3>
-            <p className="text-sm text-gray-600 mt-2">$15 - $250</p>
-            <p className="text-sm text-gray-600">You have 0</p>
-          </div>
-
-          <div className="border rounded-lg p-4 bg-white shadow">
-            <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-              <FaBox className="text-gray-600" /> Storage
-            </h3>
-            <p className="text-sm text-gray-600 mt-2">$25 - $40</p>
-            <p className="text-sm text-gray-600">You have 0</p>
-          </div>
-
-          <div className="border rounded-lg p-4 bg-white shadow">
-            <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-              <FaBicycle className="text-gray-600" /> Bike Storage
-            </h3>
-            <p className="text-sm text-gray-600 mt-2">$25</p>
-            <p className="text-sm text-gray-600">You have 0</p>
-          </div>
+          <Card
+            title="Pets"
+            icon={<FaDog className="text-green-600" />}
+            description="$35 / mo / pet"
+            additionalInfo="$300 deposit increase"
+            pendingText="1 pending"
+            borderColor="border-green-500"
+          />
+          <Card
+            title="Parking"
+            icon={<FaCar className="text-gray-600" />}
+            description="$15 - $250"
+            additionalInfo="You have 0"
+          />
+          <Card
+            title="Storage"
+            icon={<FaBox className="text-gray-600" />}
+            description="$25 - $40"
+            additionalInfo="You have 0"
+          />
+          <Card
+            title="Bike Storage"
+            icon={<FaBicycle className="text-gray-600" />}
+            description="$25"
+            additionalInfo="You have 0"
+          />
         </section>
 
         <div className="flex justify-between items-center mt-8">
