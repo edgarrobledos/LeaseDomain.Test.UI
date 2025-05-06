@@ -1,11 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./components/Card";
 import { FaDog, FaCar, FaBox, FaBicycle } from "react-icons/fa";
 
 export default function LeaseAddOns() {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  const [leaseSummary, setLeaseSummary] = useState<unknown>(null);
+
+  useEffect(() => {
+    const fetchLeaseSummary = async () => {
+      try {
+        const response = await fetch("/leases/summary", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (!response.ok) {
+          throw new Error("Failed to fetch lease summary");
+        }
+        const data = await response.json();
+
+        setLeaseSummary(data);
+      } catch (error) {
+        console.error("Error fetching lease summary:", error);
+      }
+    };
+
+    fetchLeaseSummary();
+  }, []);
+
+  console.log("Lease Summary:", leaseSummary);
 
   const handleCardSelect = (cardTitle: string) => {
     setSelectedCard(selectedCard === cardTitle ? null : cardTitle);
