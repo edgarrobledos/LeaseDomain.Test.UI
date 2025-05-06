@@ -1,7 +1,16 @@
+"use client";
+
+import { useState } from "react";
 import Card from "./components/Card";
 import { FaDog, FaCar, FaBox, FaBicycle } from "react-icons/fa";
 
 export default function LeaseAddOns() {
+  const [selectedCard, setSelectedCard] = useState<string | null>(null);
+
+  const handleCardSelect = (cardTitle: string) => {
+    setSelectedCard(selectedCard === cardTitle ? null : cardTitle);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <header className="grid grid-cols-2 gap-4 border-b border-gray-300 pb-4 mb-6">
@@ -45,29 +54,84 @@ export default function LeaseAddOns() {
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Card
             title="Pets"
-            icon={<FaDog className="text-gray-600" />}
+            icon={
+              <FaDog
+                className={
+                  selectedCard === "Pets" ? "text-green-600" : "text-gray-600"
+                }
+              />
+            }
             description="$35 / mo / pet"
             additionalInfo="$300 deposit increase"
             pendingText="1 pending"
-            borderColor="border-green-500"
+            isSelected={selectedCard === "Pets"}
+            borderColor={
+              selectedCard === "Pets" ? "border-green-500" : "border-gray-300"
+            }
+            onSelect={() => handleCardSelect("Pets")}
           />
           <Card
             title="Parking"
-            icon={<FaCar className="text-gray-600" />}
+            icon={
+              <FaCar
+                className={
+                  selectedCard === "Parking"
+                    ? "text-green-600"
+                    : "text-gray-600"
+                }
+              />
+            }
             description="$15 - $250"
             additionalInfo="You have 0"
+            borderColor={
+              selectedCard === "Parking"
+                ? "border-green-500"
+                : "border-gray-300"
+            }
+            isSelected={selectedCard === "Parking"}
+            onSelect={() => handleCardSelect("Parking")}
           />
           <Card
             title="Storage"
-            icon={<FaBox className="text-gray-600" />}
+            icon={
+              <FaBox
+                className={
+                  selectedCard === "Storage"
+                    ? "text-green-600"
+                    : "text-gray-600"
+                }
+              />
+            }
             description="$25 - $40"
             additionalInfo="You have 0"
+            borderColor={
+              selectedCard === "Storage"
+                ? "border-green-500"
+                : "border-gray-300"
+            }
+            isSelected={selectedCard === "Storage"}
+            onSelect={() => handleCardSelect("Storage")}
           />
           <Card
             title="Bike Storage"
-            icon={<FaBicycle className="text-gray-600" />}
+            icon={
+              <FaBicycle
+                className={
+                  selectedCard === "Bike Storage"
+                    ? "text-green-600"
+                    : "text-gray-600"
+                }
+              />
+            }
             description="$25"
+            isSelected={selectedCard === "Bike Storage"}
             additionalInfo="You have 0"
+            borderColor={
+              selectedCard === "Bike Storage"
+                ? "border-green-500"
+                : "border-gray-300"
+            }
+            onSelect={() => handleCardSelect("Bike Storage")}
           />
         </section>
 
